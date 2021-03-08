@@ -4,7 +4,7 @@ A single page application that represents historic and future SpaceX launches.
 
 ## Host site
 
-Netlify: XXXXX
+Netlify: https://spacex-launch-list.netlify.app/
 
 ## Run locally
 
