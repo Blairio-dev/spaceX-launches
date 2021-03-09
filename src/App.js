@@ -9,6 +9,8 @@ import {
 import spaceXLogo from "./assets/img/spacex-logo.png";
 
 const StyledContentWrapper = styled("div")`
+  display: flex;
+  flex-direction: column;
   padding-right: 80px;
 `;
 

@@ -16,8 +16,6 @@ const StyledButton = styled("button")`
   color: ${colours.white};
   cursor: pointer;
   display: inline-flex;
-  font-family: Brandon Grotesque;
-
   height: min-content;
   padding: 10px 16px;
 
