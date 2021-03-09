@@ -20,12 +20,14 @@ const StyledButton = styled("button")`
 
   height: min-content;
   padding: 10px 16px;
-  transition: transform 0.05s ease-out;
 
   :focus,
   :hover {
     outline: 0;
-    transform: scale(1.05);
+
+    img {
+      transform: scale(1.15);
+    }
   }
 
   span {
@@ -36,6 +38,7 @@ const StyledButton = styled("button")`
 
   img {
     margin-left: 8px;
+    transition: transform 0.05s ease-out;
   }
 `;
 
