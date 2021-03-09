@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
 const StyledWrapper = styled("div")`
+  align-items: center;
   display: flex;
   justify-content: ${(props) => props.justification};
   width: 100%;
