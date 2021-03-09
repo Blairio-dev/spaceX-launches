@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button } from "./components";
+import { Button, Inline } from "./components";
 
 const StyledWrapper = styled("div")`
   padding-left: 40px;
@@ -8,9 +8,13 @@ const StyledWrapper = styled("div")`
 
 const App = () => (
   <StyledWrapper>
-    <Button.Reload />
-    <Button.Filter labelText="Filter by Year" />
-    <Button.Sort labelText="Sort Descending" />
+    <Inline.Justified nodes={[<Button.Reload />]} />
+    <Inline.RightAligned
+      nodes={[
+        <Button.Filter labelText="Filter by Year" />,
+        <Button.Sort labelText="Sort Descending" />,
+      ]}
+    />
   </StyledWrapper>
 );
 
