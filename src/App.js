@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Button, Image, Inline } from "./components";
+import { Button, ButtonWrapper, Image, Inline } from "./components";
 import spaceXLogo from "./assets/img/spacex-logo.png";
 
 const StyledContentWrapper = styled("div")`
@@ -26,12 +26,14 @@ const App = () => (
       />
     </StyledHeaderWrapper>
     <StyledContentWrapper>
-      <Inline.RightAligned
-        nodes={[
-          <Button.Filter labelText="Filter by Year" />,
-          <Button.Sort labelText="Sort Descending" />,
-        ]}
-      />
+      <ButtonWrapper>
+        <Inline.RightAligned
+          nodes={[
+            <Button.Filter labelText="Filter by Year" />,
+            <Button.Sort labelText="Sort Descending" />,
+          ]}
+        />
+      </ButtonWrapper>
     </StyledContentWrapper>
   </StyledWrapper>
 );

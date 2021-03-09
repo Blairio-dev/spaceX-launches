@@ -11,9 +11,7 @@ const StyledWrapper = styled("div")`
 
 const BaseInline = ({ justification, nodes }) => (
   <StyledWrapper justification={justification}>
-    {nodes.map((x, index) => (
-      <div key={index}>{x}</div>
-    ))}
+    {nodes.map((component) => component)}
   </StyledWrapper>
 );
 
