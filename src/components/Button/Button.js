@@ -23,6 +23,7 @@ const StyledButton = styled("button")`
   cursor: pointer;
   display: inline-flex;
   height: 43px;
+  margin: 0;
   padding: 0 16px;
 
   :focus,
