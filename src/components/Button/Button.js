@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { colours } from "../../assets/tokens";
+import { Image } from "../../components";
 import RefreshIcon from "../../assets/icon/refresh.png";
 import RefreshIcon2x from "../../assets/icon/refresh@2x.png";
 import RefreshIcon3x from "../../assets/icon/refresh@3x.png";
@@ -21,8 +22,8 @@ const StyledButton = styled("button")`
   color: ${colours.white};
   cursor: pointer;
   display: inline-flex;
-  height: min-content;
-  padding: 10px 16px;
+  height: 43px;
+  padding: 0 16px;
 
   :focus,
   :hover {
@@ -49,16 +50,27 @@ const basePropTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-const Base = ({ displayType, iconSourceSet, labelText, onClick }) => (
+const Base = ({
+  displayType,
+  iconHeight,
+  iconSourceSet,
+  labelText,
+  onClick,
+}) => (
   <StyledButton displayType={displayType} onClick={onClick} type="button">
     <span>{labelText}</span>
-    <img alt="icon" srcSet={iconSourceSet} />
+    <Image
+      alt="Rocket launching"
+      height={iconHeight}
+      sourceSet={iconSourceSet}
+    />
   </StyledButton>
 );
 
 Base.propTypes = {
   ...basePropTypes,
   displayType: PropTypes.oneOf(["standard", "roundedLeft"]).isRequired,
+  iconHeight: PropTypes.string.isRequired,
   iconSourceSet: PropTypes.node.isRequired,
   labelText: PropTypes.string.isRequired,
 };
@@ -66,6 +78,7 @@ Base.propTypes = {
 const Filter = ({ labelText, onClick }) => (
   <Base
     displayType="standard"
+    iconHeight="5px"
     iconSourceSet={`
       ${SelectIcon3x} 3x,
       ${SelectIcon2x} 2x,
@@ -84,6 +97,7 @@ Filter.propTypes = {
 const Reload = ({ onClick }) => (
   <Base
     displayType="roundedLeft"
+    iconHeight="14px"
     iconSourceSet={`
       ${RefreshIcon3x} 3x,
       ${RefreshIcon2x} 2x,
@@ -101,6 +115,7 @@ Reload.propTypes = {
 const Sort = ({ labelText, onClick }) => (
   <Base
     displayType="standard"
+    iconHeight="18px"
     iconSourceSet={`
       ${SortIcon3x} 3x,
       ${SortIcon2x} 2x,
