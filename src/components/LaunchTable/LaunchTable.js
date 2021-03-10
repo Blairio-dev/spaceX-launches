@@ -11,7 +11,8 @@ const StyledRow = styled("tr")`
   box-shadow: 0px 2px 15px 0px hsl(0, 0%, 0%, 25%);
   color: ${colours.body};
   display: flex;
-  height: 80px;
+  min-height: 80px;
+  justify-content: space-between;
   margin-bottom: 6px;
 `;
 
@@ -26,7 +27,7 @@ const StyledFlightNumber = styled("td")`
 const StyledMissionName = styled("td")`
   font-family: "Brandon Grotesque Medium";
   font-size: 32px;
-  width: 454px;
+  width: 100%;
 `;
 
 const StyledLaunchDate = styled("div")`
@@ -35,6 +36,7 @@ const StyledLaunchDate = styled("div")`
   font-size: 16px;
   justify-content: inherit;
   margin-bottom: 8px;
+  white-space: nowrap;
 `;
 
 const StyledRocketName = styled("div")`
@@ -59,8 +61,8 @@ const LaunchTable = ({ launchData }) => (
     <ButtonWrapper>
       <Inline.RightAligned
         nodes={[
-          <Button.Filter labelText="Filter by Year" />,
-          <Button.Sort labelText="Sort Descending" />,
+          <Button.Filter labelText="Filter by Year" key="button-filter" />,
+          <Button.Sort labelText="Sort Descending" key="button-sort" />,
         ]}
         verticalAlignment="center"
       />
@@ -68,7 +70,7 @@ const LaunchTable = ({ launchData }) => (
     <StyledTable>
       <tbody>
         {launchData.map((launch) => (
-          <StyledRow key={launch.flight_number}>
+          <StyledRow key={`#${launch.id}-${launch.mission_name}`}>
             <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
             <StyledMissionName>{launch.mission_name}</StyledMissionName>
             <StackedCell>
@@ -89,7 +91,7 @@ LaunchTable.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       mission_name: PropTypes.string.isRequired,
-      launch_date_utc: PropTypes.instanceOf(Date).isRequired,
+      launch_date_utc: PropTypes.string.isRequired,
       rocket: PropTypes.PropTypes.shape({
         rocket_name: PropTypes.string.isRequired,
       }),

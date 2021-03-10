@@ -59,7 +59,7 @@ const Base = ({ displayType, iconSourceSet, labelText, onClick }) => (
 Base.propTypes = {
   ...basePropTypes,
   displayType: PropTypes.oneOf(["standard", "roundedLeft"]).isRequired,
-  iconSrc: PropTypes.node.isRequired,
+  iconSourceSet: PropTypes.node.isRequired,
   labelText: PropTypes.string.isRequired,
 };
 

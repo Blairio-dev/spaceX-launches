@@ -47,15 +47,20 @@ const App = () => {
         <StyledHeaderWrapper>
           <Inline.Justified
             nodes={[
-              <Image alt="SpaceX Logo" height="22px" source={spaceXLogo} />,
-              <Button.Reload />,
+              <Image
+                alt="SpaceX Logo"
+                height="22px"
+                source={spaceXLogo}
+                key="spacex-logo"
+              />,
+              <Button.Reload key="button-reload" />,
             ]}
           />
         </StyledHeaderWrapper>
         <StyledContentWrapper>
           <Inline.Justified
             nodes={[
-              <StyledRocketWrapper>
+              <StyledRocketWrapper key="rocket-image">
                 <Image
                   alt="Rocket launching"
                   height="694px"
@@ -66,7 +71,7 @@ const App = () => {
                   `}
                 />
               </StyledRocketWrapper>,
-              <Query query={getAllArticles}>
+              <Query query={getAllArticles} key="rocket-data">
                 {({ loading, error, data }) => {
                   if (loading) return <p>Fetching launch data...</p>;
                   if (error) return <p>Houston, we have a problem...</p>;

@@ -6,7 +6,7 @@ const Image = ({ alt, height, source, sourceSet, width }) => (
     alt={alt}
     height={height}
     src={source}
-    srcset={sourceSet}
+    srcSet={sourceSet}
     width={width}
   />
 );
