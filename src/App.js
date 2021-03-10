@@ -3,6 +3,8 @@ import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
 import { Button, Image, Inline, LaunchTable, PageShell } from "./components";
 import launchHome from "./assets/img/launch-home.png";
+import launchHome2x from "./assets/img/launch-home@2x.png";
+import launchHome3x from "./assets/img/launch-home@3x.png";
 import spaceXLogo from "./assets/img/spacex-logo.png";
 
 const getAllArticles = gql`
@@ -45,7 +47,7 @@ const App = () => {
         <StyledHeaderWrapper>
           <Inline.Justified
             nodes={[
-              <Image alt="SpaceX Logo" height="22px" imageUrl={spaceXLogo} />,
+              <Image alt="SpaceX Logo" height="22px" source={spaceXLogo} />,
               <Button.Reload />,
             ]}
           />
@@ -57,7 +59,11 @@ const App = () => {
                 <Image
                   alt="Rocket launching"
                   height="694px"
-                  imageUrl={launchHome}
+                  sourceSet={`
+                    ${launchHome3x} 3x,
+                    ${launchHome2x} 2x,
+                    ${launchHome} 1x,
+                  `}
                 />
               </StyledRocketWrapper>,
               <Query query={getAllArticles}>

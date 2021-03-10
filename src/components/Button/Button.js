@@ -2,10 +2,15 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { colours } from "../../assets/tokens";
-
 import RefreshIcon from "../../assets/icon/refresh.png";
+import RefreshIcon2x from "../../assets/icon/refresh@2x.png";
+import RefreshIcon3x from "../../assets/icon/refresh@3x.png";
 import SortIcon from "../../assets/icon/sort.png";
-import SelectIcon from "../../assets/icon/select.png";
+import SortIcon2x from "../../assets/icon/sort.png";
+import SortIcon3x from "../../assets/icon/sort@2x.png";
+import SelectIcon from "../../assets/icon/select@3x.png";
+import SelectIcon2x from "../../assets/icon/select@2x.png";
+import SelectIcon3x from "../../assets/icon/select@3x.png";
 
 const StyledButton = styled("button")`
   align-items: center;
@@ -44,10 +49,10 @@ const basePropTypes = {
   onClick: PropTypes.func.isRequired,
 };
 
-const Base = ({ displayType, iconSrc, labelText, onClick }) => (
+const Base = ({ displayType, iconSourceSet, labelText, onClick }) => (
   <StyledButton displayType={displayType} onClick={onClick} type="button">
     <span>{labelText}</span>
-    <img src={iconSrc} alt="icon" />
+    <img alt="icon" srcSet={iconSourceSet} />
   </StyledButton>
 );
 
@@ -61,7 +66,11 @@ Base.propTypes = {
 const Filter = ({ labelText, onClick }) => (
   <Base
     displayType="standard"
-    iconSrc={SelectIcon}
+    iconSourceSet={`
+      ${SelectIcon3x} 3x,
+      ${SelectIcon2x} 2x,
+      ${SelectIcon} 1x,
+    `}
     labelText={labelText}
     onClick={onClick}
   />
@@ -75,7 +84,11 @@ Filter.propTypes = {
 const Reload = ({ onClick }) => (
   <Base
     displayType="roundedLeft"
-    iconSrc={RefreshIcon}
+    iconSourceSet={`
+      ${RefreshIcon3x} 3x,
+      ${RefreshIcon2x} 2x,
+      ${RefreshIcon} 1x,
+    `}
     labelText="Reload Data"
     onClick={onClick}
   />
@@ -88,7 +101,11 @@ Reload.propTypes = {
 const Sort = ({ labelText, onClick }) => (
   <Base
     displayType="standard"
-    iconSrc={SortIcon}
+    iconSourceSet={`
+      ${SortIcon3x} 3x,
+      ${SortIcon2x} 2x,
+      ${SortIcon} 1x,
+    `}
     labelText={labelText}
     onClick={onClick}
   />
