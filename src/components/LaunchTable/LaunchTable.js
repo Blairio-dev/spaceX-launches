@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import moment from "moment";
 import { colours } from "../../assets/tokens";
+import { Button, ButtonWrapper, Inline } from "../../components";
 
 const StyledRow = styled("tr")`
   align-items: center;
@@ -54,28 +55,39 @@ const StackedCell = styled("td")`
 const StyledTable = styled("table")``;
 
 const LaunchTable = ({ launchData }) => (
-  <StyledTable>
-    <tbody>
-      {launchData.map((launch) => (
-        <StyledRow key={launch.flight_number}>
-          <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
-          <StyledMissionName>{launch.mission_name}</StyledMissionName>
-          <StackedCell>
-            <StyledLaunchDate>
-              {moment(launch.launch_date_utc).format("Do MMM YYYY")}
-            </StyledLaunchDate>
-            <StyledRocketName>{launch.rocket.rocket_name}</StyledRocketName>
-          </StackedCell>
-        </StyledRow>
-      ))}
-    </tbody>
-  </StyledTable>
+  <div>
+    <ButtonWrapper>
+      <Inline.RightAligned
+        nodes={[
+          <Button.Filter labelText="Filter by Year" />,
+          <Button.Sort labelText="Sort Descending" />,
+        ]}
+        verticalAlignment="center"
+      />
+    </ButtonWrapper>
+    <StyledTable>
+      <tbody>
+        {launchData.map((launch) => (
+          <StyledRow key={launch.flight_number}>
+            <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
+            <StyledMissionName>{launch.mission_name}</StyledMissionName>
+            <StackedCell>
+              <StyledLaunchDate>
+                {moment(launch.launch_date_utc).format("Do MMM YYYY")}
+              </StyledLaunchDate>
+              <StyledRocketName>{launch.rocket.rocket_name}</StyledRocketName>
+            </StackedCell>
+          </StyledRow>
+        ))}
+      </tbody>
+    </StyledTable>
+  </div>
 );
 
 LaunchTable.propTypes = {
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       mission_name: PropTypes.string.isRequired,
       launch_date_utc: PropTypes.instanceOf(Date).isRequired,
       rocket: PropTypes.PropTypes.shape({

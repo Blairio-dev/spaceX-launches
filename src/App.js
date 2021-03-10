@@ -1,13 +1,8 @@
 import styled from "@emotion/styled";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import {
-  Button,
-  ButtonWrapper,
-  Image,
-  Inline,
-  LaunchTable,
-} from "./components";
+import { Button, Image, Inline, LaunchTable, PageShell } from "./components";
+import launchHome from "./assets/img/launch-home.png";
 import spaceXLogo from "./assets/img/spacex-logo.png";
 
 const getAllArticles = gql`
@@ -33,39 +28,49 @@ const StyledHeaderWrapper = styled("div")`
   margin-bottom: 52px;
 `;
 
+const StyledRocketWrapper = styled("div")`
+  margin-top: 82px;
+  margin-right: 59px;
+`;
+
 const StyledWrapper = styled("div")`
-  padding-left: 40px;
-  padding-top: 24px;
+  display: flex;
+  justify-content: center;
 `;
 
 const App = () => {
   return (
     <StyledWrapper>
-      <StyledHeaderWrapper>
-        <Inline.Justified
-          nodes={[
-            <Image alt="SpaceX Logo" height="22px" imageUrl={spaceXLogo} />,
-            <Button.Reload />,
-          ]}
-        />
-      </StyledHeaderWrapper>
-      <StyledContentWrapper>
-        <ButtonWrapper>
-          <Inline.RightAligned
+      <PageShell>
+        <StyledHeaderWrapper>
+          <Inline.Justified
             nodes={[
-              <Button.Filter labelText="Filter by Year" />,
-              <Button.Sort labelText="Sort Descending" />,
+              <Image alt="SpaceX Logo" height="22px" imageUrl={spaceXLogo} />,
+              <Button.Reload />,
             ]}
           />
-        </ButtonWrapper>
-        <Query query={getAllArticles}>
-          {({ loading, error, data }) => {
-            if (loading) return <p>Relax, it's worth the wait...</p>;
-            if (error) return <p>Looks like we've got a problem...</p>;
-            return <LaunchTable launchData={data.launches} />;
-          }}
-        </Query>
-      </StyledContentWrapper>
+        </StyledHeaderWrapper>
+        <StyledContentWrapper>
+          <Inline.Justified
+            nodes={[
+              <StyledRocketWrapper>
+                <Image
+                  alt="Rocket launching"
+                  height="694px"
+                  imageUrl={launchHome}
+                />
+              </StyledRocketWrapper>,
+              <Query query={getAllArticles}>
+                {({ loading, error, data }) => {
+                  if (loading) return <p>Fetching launch data...</p>;
+                  if (error) return <p>Houston, we have a problem...</p>;
+                  return <LaunchTable launchData={data.launches} />;
+                }}
+              </Query>,
+            ]}
+          />
+        </StyledContentWrapper>
+      </PageShell>
     </StyledWrapper>
   );
 };

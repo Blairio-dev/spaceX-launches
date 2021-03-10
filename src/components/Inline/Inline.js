@@ -3,20 +3,39 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 
 const StyledWrapper = styled("div")`
-  align-items: center;
+  align-items: ${(props) => props.alignItems};
   display: flex;
   justify-content: ${(props) => props.justification};
   width: 100%;
 `;
 
-const BaseInline = ({ justification, nodes }) => (
-  <StyledWrapper justification={justification}>
+const getVerticalAlignment = (verticalAlignment) => {
+  switch (verticalAlignment) {
+    case "top":
+      return "flex-start";
+    case "bottom":
+      return "flex-end";
+    case "center":
+      return "center";
+    case "baseline":
+      return "baseline";
+    default:
+      return "stretch";
+  }
+};
+
+const BaseInline = ({ justification, nodes, verticalAlignment }) => (
+  <StyledWrapper
+    alignItems={getVerticalAlignment(verticalAlignment)}
+    justification={justification}
+  >
     {nodes.map((component) => component)}
   </StyledWrapper>
 );
 
 const baseProps = {
   nodes: PropTypes.arrayOf(PropTypes.node).isRequired,
+  verticalAlignment: PropTypes.string,
 };
 
 BaseInline.propTypes = {
@@ -24,16 +43,28 @@ BaseInline.propTypes = {
   justification: PropTypes.string,
 };
 
-const Justified = ({ nodes }) => (
-  <BaseInline justification="space-between" nodes={nodes} />
+BaseInline.defaultProps = {
+  verticalAlignment: "stretch",
+};
+
+const Justified = ({ nodes, verticalAlignment }) => (
+  <BaseInline
+    justification="space-between"
+    nodes={nodes}
+    verticalAlignment={verticalAlignment}
+  />
 );
 
 Justified.propTypes = {
   ...baseProps,
 };
 
-const RightAligned = ({ nodes }) => (
-  <BaseInline justification="flex-end" nodes={nodes} />
+const RightAligned = ({ nodes, verticalAlignment }) => (
+  <BaseInline
+    justification="flex-end"
+    nodes={nodes}
+    verticalAlignment={verticalAlignment}
+  />
 );
 
 RightAligned.propTypes = {
