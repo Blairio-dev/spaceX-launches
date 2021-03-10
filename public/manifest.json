@@ -3,6 +3,6 @@
   "name": "SpaceX Launches",
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "hsl(0, 0%, 100%)",
-  "background_color": "hsl(0, 0%, 100%)"
+  "theme_color": "hsl(211, 60%, 32%)",
+  "background_color": "hsl(211, 60%, 32%)"
 }

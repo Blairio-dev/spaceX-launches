@@ -6,6 +6,7 @@ import launchHome from "./assets/img/launch-home.png";
 import launchHome2x from "./assets/img/launch-home@2x.png";
 import launchHome3x from "./assets/img/launch-home@3x.png";
 import spaceXLogo from "./assets/img/spacex-logo.png";
+import { colours } from "./assets/tokens";
 
 const getAllArticles = gql`
   {
@@ -36,7 +37,9 @@ const StyledRocketWrapper = styled("div")`
 `;
 
 const StyledWrapper = styled("div")`
+  background-color: ${colours.primaryBlue};
   display: flex;
+  height: 100vh;
   justify-content: center;
 `;
 

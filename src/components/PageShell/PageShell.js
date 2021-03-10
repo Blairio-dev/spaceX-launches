@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import { colours } from "../../assets/tokens";
 
 const StyledWrapper = styled("div")`
+  background-color: ${colours.white};
   max-width: 1440px;
   padding-left: 40px;
   padding-top: 24px;
