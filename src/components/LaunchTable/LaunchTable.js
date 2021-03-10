@@ -17,7 +17,8 @@ const StyledRow = styled("tr")`
 const StyledFlightNumber = styled("td")`
   font-family: "Brandon Grotesque Medium";
   font-size: 40px;
-  padding-left: 32px;
+  margin-left: 32px;
+  margin-right: 24px;
   width: 76px;
 `;
 
@@ -57,7 +58,7 @@ const LaunchTable = ({ launchData }) => (
     <tbody>
       {launchData.map((launch) => (
         <StyledRow key={launch.flight_number}>
-          <StyledFlightNumber>{`#${launch.flight_number}`}</StyledFlightNumber>
+          <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
           <StyledMissionName>{launch.mission_name}</StyledMissionName>
           <StackedCell>
             <StyledLaunchDate>
@@ -74,7 +75,7 @@ const LaunchTable = ({ launchData }) => (
 LaunchTable.propTypes = {
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
-      flight_number: PropTypes.number.isRequired,
+      id: PropTypes.number.isRequired,
       mission_name: PropTypes.string.isRequired,
       launch_date_utc: PropTypes.instanceOf(Date).isRequired,
       rocket: PropTypes.PropTypes.shape({

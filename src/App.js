@@ -1,4 +1,6 @@
 import styled from "@emotion/styled";
+import { Query } from "react-apollo";
+import { gql } from "apollo-boost";
 import {
   Button,
   ButtonWrapper,
@@ -7,6 +9,19 @@ import {
   LaunchTable,
 } from "./components";
 import spaceXLogo from "./assets/img/spacex-logo.png";
+
+const getAllArticles = gql`
+  {
+    launches {
+      id
+      mission_name
+      launch_date_utc
+      rocket {
+        rocket_name
+      }
+    }
+  }
+`;
 
 const StyledContentWrapper = styled("div")`
   display: flex;
@@ -23,39 +38,36 @@ const StyledWrapper = styled("div")`
   padding-top: 24px;
 `;
 
-const App = () => (
-  <StyledWrapper>
-    <StyledHeaderWrapper>
-      <Inline.Justified
-        nodes={[
-          <Image alt="SpaceX Logo" height="22px" imageUrl={spaceXLogo} />,
-          <Button.Reload />,
-        ]}
-      />
-    </StyledHeaderWrapper>
-    <StyledContentWrapper>
-      <ButtonWrapper>
-        <Inline.RightAligned
+const App = () => {
+  return (
+    <StyledWrapper>
+      <StyledHeaderWrapper>
+        <Inline.Justified
           nodes={[
-            <Button.Filter labelText="Filter by Year" />,
-            <Button.Sort labelText="Sort Descending" />,
+            <Image alt="SpaceX Logo" height="22px" imageUrl={spaceXLogo} />,
+            <Button.Reload />,
           ]}
         />
-      </ButtonWrapper>
-      <LaunchTable
-        launchData={[
-          {
-            flight_number: 1,
-            mission_name: "FalconSat",
-            launch_date_utc: "2006-03-24T22:30:00.000Z",
-            rocket: {
-              rocket_name: "Falcon 1",
-            },
-          },
-        ]}
-      />
-    </StyledContentWrapper>
-  </StyledWrapper>
-);
+      </StyledHeaderWrapper>
+      <StyledContentWrapper>
+        <ButtonWrapper>
+          <Inline.RightAligned
+            nodes={[
+              <Button.Filter labelText="Filter by Year" />,
+              <Button.Sort labelText="Sort Descending" />,
+            ]}
+          />
+        </ButtonWrapper>
+        <Query query={getAllArticles}>
+          {({ loading, error, data }) => {
+            if (loading) return <p>Relax, it's worth the wait...</p>;
+            if (error) return <p>Looks like we've got a problem...</p>;
+            return <LaunchTable launchData={data.launches} />;
+          }}
+        </Query>
+      </StyledContentWrapper>
+    </StyledWrapper>
+  );
+};
 
 export { App };
