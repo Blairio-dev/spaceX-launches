@@ -54,7 +54,9 @@ const StackedCell = styled("td")`
   padding-right: 16px;
 `;
 
-const StyledTable = styled("table")``;
+const StyledTable = styled("table")`
+  border-spacing: 0;
+`;
 
 const LaunchTable = ({ launchData }) => (
   <div>
