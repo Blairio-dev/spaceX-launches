@@ -1,6 +1,7 @@
+import { useState } from "react";
 import styled from "@emotion/styled";
-import { Query } from "react-apollo";
-import { gql } from "apollo-boost";
+import { gql, useQuery } from "@apollo/client";
+
 import {
   Button,
   HomeTitle,
@@ -14,9 +15,9 @@ import launchHome2x from "./assets/img/launch-home@2x.png";
 import launchHome3x from "./assets/img/launch-home@3x.png";
 import { colours } from "./assets/tokens";
 
-const getAllArticles = gql`
-  {
-    launches {
+const getLaunches = gql`
+  query Launch($launchOrder: String!) {
+    launches(sort: "launch_date_utc", order: $launchOrder) {
       id
       mission_name
       launch_date_utc
@@ -50,12 +51,23 @@ const StyledWrapper = styled("div")`
 `;
 
 const App = () => {
+  const [isAscending, setIsAscending] = useState(true);
+  const launchOrder = isAscending ? "ASC" : "DESC";
+  const { loading, error, data } = useQuery(getLaunches, {
+    variables: { launchOrder },
+  });
   return (
     <StyledWrapper>
       <PageShell>
         <StyledHeaderWrapper>
           <Inline.Justified
-            nodes={[<HomeTitle />, <Button.Reload key="button-reload" />]}
+            nodes={[
+              <HomeTitle key="home-title" />,
+              <Button.Reload
+                key="button-reload"
+                onClick={() => console.log("Reload")}
+              />,
+            ]}
             verticalAlignment="center"
           />
         </StyledHeaderWrapper>
@@ -73,13 +85,20 @@ const App = () => {
                   `}
                 />
               </StyledRocketWrapper>,
-              <Query query={getAllArticles} key="rocket-data">
-                {({ loading, error, data }) => {
-                  if (loading) return <p>Fetching launch data...</p>;
-                  if (error) return <p>Houston, we have a problem...</p>;
-                  return <LaunchTable launchData={data.launches} />;
-                }}
-              </Query>,
+              <div key="launch-data">
+                {loading && <p>Fetching launch data...</p>}
+                {error && <p>Houston, we have a problem...</p>}
+                {!loading && !error && (
+                  <LaunchTable
+                    filterOnClick={() => console.log("Filter")}
+                    launchData={data.launches}
+                    sortOnClick={() => setIsAscending(!isAscending)}
+                    sortLabelText={`Sort ${
+                      isAscending ? "Descending" : "Ascending"
+                    }`}
+                  />
+                )}
+              </div>,
             ]}
           />
         </StyledContentWrapper>

@@ -63,20 +63,33 @@ const StyledTable = styled("table")`
   }
 `;
 
-const LaunchTable = ({ launchData }) => (
+const LaunchTable = ({
+  filterOnClick,
+  launchData,
+  sortLabelText,
+  sortOnClick,
+}) => (
   <div>
     <ButtonWrapper>
       <Inline.RightAligned
         nodes={[
-          <Button.Filter labelText="Filter by Year" key="button-filter" />,
-          <Button.Sort labelText="Sort Descending" key="button-sort" />,
+          <Button.Filter
+            labelText="Filter by Year"
+            key="button-filter"
+            onClick={filterOnClick}
+          />,
+          <Button.Sort
+            labelText={sortLabelText}
+            key="button-sort"
+            onClick={sortOnClick}
+          />,
         ]}
       />
     </ButtonWrapper>
     <StyledTable>
       <tbody>
-        {launchData.map((launch) => (
-          <StyledRow key={`#${launch.id}-${launch.mission_name}`}>
+        {launchData.map((launch, index) => (
+          <StyledRow key={`#${launch.id}-${launch.mission_name}-${index}`}>
             <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
             <StyledMissionName>{launch.mission_name}</StyledMissionName>
             <StackedCell>
@@ -93,6 +106,7 @@ const LaunchTable = ({ launchData }) => (
 );
 
 LaunchTable.propTypes = {
+  filterOnClick: PropTypes.func.isRequired,
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -103,6 +117,8 @@ LaunchTable.propTypes = {
       }),
     })
   ).isRequired,
+  sortLabelText: PropTypes.string.isRequired,
+  sortOnClick: PropTypes.func.isRequired,
 };
 
 export { LaunchTable };

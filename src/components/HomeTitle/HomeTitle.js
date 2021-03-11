@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { Image } from "../../components";
 import spaceXLogo from "../../assets/img/spacex-logo.png";
