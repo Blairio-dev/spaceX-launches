@@ -53,9 +53,14 @@ const StyledWrapper = styled("div")`
 const App = () => {
   const [isAscending, setIsAscending] = useState(true);
   const launchOrder = isAscending ? "ASC" : "DESC";
-  const { loading, error, data } = useQuery(getLaunches, {
-    variables: { launchOrder },
-  });
+  const { loading, error, data, refetch, networkStatus } = useQuery(
+    getLaunches,
+    {
+      variables: { launchOrder },
+      notifyOnNetworkStatusChange: true,
+    }
+  );
+  console.log(networkStatus);
   return (
     <StyledWrapper>
       <PageShell>
@@ -63,10 +68,7 @@ const App = () => {
           <Inline.Justified
             nodes={[
               <HomeTitle key="home-title" />,
-              <Button.Reload
-                key="button-reload"
-                onClick={() => console.log("Reload")}
-              />,
+              <Button.Reload key="button-reload" onClick={() => refetch()} />,
             ]}
             verticalAlignment="center"
           />
