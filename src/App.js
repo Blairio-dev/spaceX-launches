@@ -1,11 +1,17 @@
 import styled from "@emotion/styled";
 import { Query } from "react-apollo";
 import { gql } from "apollo-boost";
-import { Button, Image, Inline, LaunchTable, PageShell } from "./components";
+import {
+  Button,
+  HomeTitle,
+  Image,
+  Inline,
+  LaunchTable,
+  PageShell,
+} from "./components";
 import launchHome from "./assets/img/launch-home.png";
 import launchHome2x from "./assets/img/launch-home@2x.png";
 import launchHome3x from "./assets/img/launch-home@3x.png";
-import spaceXLogo from "./assets/img/spacex-logo.png";
 import { colours } from "./assets/tokens";
 
 const getAllArticles = gql`
@@ -49,15 +55,7 @@ const App = () => {
       <PageShell>
         <StyledHeaderWrapper>
           <Inline.Justified
-            nodes={[
-              <Image
-                alt="SpaceX Logo"
-                height="22px"
-                source={spaceXLogo}
-                key="spacex-logo"
-              />,
-              <Button.Reload key="button-reload" />,
-            ]}
+            nodes={[<HomeTitle />, <Button.Reload key="button-reload" />]}
           />
         </StyledHeaderWrapper>
         <StyledContentWrapper>
