@@ -16,11 +16,16 @@ import launchHome3x from "./assets/img/launch-home@3x.png";
 import { colours } from "./assets/tokens";
 
 const getLaunches = gql`
-  query Launch($launchOrder: String!) {
-    launches(sort: "launch_date_utc", order: $launchOrder) {
+  query Launch($launchYear: String!, $launchOrder: String!) {
+    launches(
+      find: { launch_year: $launchYear }
+      sort: "launch_date_utc"
+      order: $launchOrder
+    ) {
       id
       mission_name
       launch_date_utc
+      launch_year
       rocket {
         rocket_name
       }
@@ -50,17 +55,20 @@ const StyledWrapper = styled("div")`
   min-height: 100vh;
 `;
 
-const App = () => {
+const App = (client) => {
   const [isAscending, setIsAscending] = useState(true);
+  const [launchYear, setLaunchYear] = useState("");
   const launchOrder = isAscending ? "ASC" : "DESC";
-  const { loading, error, data, refetch, networkStatus } = useQuery(
-    getLaunches,
-    {
-      variables: { launchOrder },
-      notifyOnNetworkStatusChange: true,
-    }
-  );
-  console.log(networkStatus);
+
+  const { loading, error, data, refetch } = useQuery(getLaunches, {
+    variables: { launchYear, launchOrder },
+    fetchPolicy: "cache-first",
+    notifyOnNetworkStatusChange: true,
+  });
+
+  const filterOnChange = (e) =>
+    setLaunchYear(e.target.value === "Filter by Year" ? "" : e.target.value);
+
   return (
     <StyledWrapper>
       <PageShell>
@@ -92,8 +100,9 @@ const App = () => {
                 {error && <p>Houston, we have a problem...</p>}
                 {!loading && !error && (
                   <LaunchTable
-                    filterOnClick={() => console.log("Filter")}
+                    filterOnChange={filterOnChange}
                     launchData={data.launches}
+                    launchYear={launchYear}
                     sortOnClick={() => setIsAscending(!isAscending)}
                     sortLabelText={`Sort ${
                       isAscending ? "Descending" : "Ascending"

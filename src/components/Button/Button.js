@@ -9,9 +9,6 @@ import RefreshIcon3x from "../../assets/icon/refresh@3x.png";
 import SortIcon from "../../assets/icon/sort.png";
 import SortIcon2x from "../../assets/icon/sort.png";
 import SortIcon3x from "../../assets/icon/sort@2x.png";
-import SelectIcon from "../../assets/icon/select@3x.png";
-import SelectIcon2x from "../../assets/icon/select@2x.png";
-import SelectIcon3x from "../../assets/icon/select@3x.png";
 
 const StyledButton = styled("button")`
   align-items: center;
@@ -73,25 +70,6 @@ Base.propTypes = {
   labelText: PropTypes.string.isRequired,
 };
 
-const Filter = ({ labelText, onClick }) => (
-  <Base
-    displayType="standard"
-    iconHeight="5px"
-    iconSourceSet={`
-      ${SelectIcon3x} 3x,
-      ${SelectIcon2x} 2x,
-      ${SelectIcon} 1x,
-    `}
-    labelText={labelText}
-    onClick={onClick}
-  />
-);
-
-Filter.propTypes = {
-  ...basePropTypes,
-  labelText: PropTypes.string.isRequired,
-};
-
 const Reload = ({ onClick }) => (
   <Base
     displayType="roundedLeft"
@@ -130,7 +108,6 @@ Sort.propTypes = {
 };
 
 const Button = {
-  Filter,
   Reload,
   Sort,
 };

@@ -3,7 +3,16 @@ import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import moment from "moment";
 import { colours } from "../../assets/tokens";
-import { Button, ButtonWrapper, Inline } from "../../components";
+import { Button, Inline } from "../../components";
+import { Select } from "../Select/Select";
+
+const StyledControls = styled("div")`
+  margin-bottom: 13px;
+
+  select {
+    margin-right: 9px;
+  }
+`;
 
 const StyledRow = styled("tr")`
   align-items: center;
@@ -64,49 +73,58 @@ const StyledTable = styled("table")`
 `;
 
 const LaunchTable = ({
-  filterOnClick,
+  filterOnChange,
   launchData,
+  launchYear,
   sortLabelText,
   sortOnClick,
-}) => (
-  <div>
-    <ButtonWrapper>
-      <Inline.RightAligned
-        nodes={[
-          <Button.Filter
-            labelText="Filter by Year"
-            key="button-filter"
-            onClick={filterOnClick}
-          />,
-          <Button.Sort
-            labelText={sortLabelText}
-            key="button-sort"
-            onClick={sortOnClick}
-          />,
-        ]}
-      />
-    </ButtonWrapper>
-    <StyledTable>
-      <tbody>
-        {launchData.map((launch, index) => (
-          <StyledRow key={`#${launch.id}-${launch.mission_name}-${index}`}>
-            <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
-            <StyledMissionName>{launch.mission_name}</StyledMissionName>
-            <StackedCell>
-              <StyledLaunchDate>
-                {moment(launch.launch_date_utc).format("Do MMM YYYY")}
-              </StyledLaunchDate>
-              <StyledRocketName>{launch.rocket.rocket_name}</StyledRocketName>
-            </StackedCell>
-          </StyledRow>
-        ))}
-      </tbody>
-    </StyledTable>
-  </div>
-);
+}) => {
+  const launchYears = [
+    ...new Set(launchData.map((launch) => launch.launch_year)),
+  ];
+  return (
+    <div>
+      <StyledControls>
+        <Inline.RightAligned
+          nodes={[
+            <Select
+              labelText="Filter by Year"
+              key="launch-year-filter-select"
+              id="launch-year-filter-select"
+              onChange={(event) => filterOnChange(event)}
+              selectOptions={["Filter by Year", ...launchYears]}
+              selectedOption={launchYear}
+            />,
+            <Button.Sort
+              labelText={sortLabelText}
+              key="button-sort"
+              onClick={sortOnClick}
+            />,
+          ]}
+        />
+      </StyledControls>
+      <StyledTable>
+        <tbody>
+          {launchData.map((launch, index) => (
+            <StyledRow key={`#${launch.id}-${launch.mission_name}-${index}`}>
+              <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
+              <StyledMissionName>{launch.mission_name}</StyledMissionName>
+              <StackedCell>
+                <StyledLaunchDate>
+                  {moment(launch.launch_date_utc).format("Do MMM YYYY")}
+                </StyledLaunchDate>
+                <StyledRocketName>{launch.rocket.rocket_name}</StyledRocketName>
+              </StackedCell>
+            </StyledRow>
+          ))}
+        </tbody>
+      </StyledTable>
+    </div>
+  );
+};
 
 LaunchTable.propTypes = {
-  filterOnClick: PropTypes.func.isRequired,
+  filterOnChange: PropTypes.func.isRequired,
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
