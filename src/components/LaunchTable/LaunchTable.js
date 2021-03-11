@@ -9,7 +9,7 @@ const StyledRow = styled("tr")`
   align-items: center;
   border-radius: 10px;
   box-shadow: 0px 2px 15px 0px hsl(0, 0%, 0%, 25%);
-  color: ${colours.body};
+  color: ${colours.text};
   display: flex;
   min-height: 80px;
   justify-content: space-between;

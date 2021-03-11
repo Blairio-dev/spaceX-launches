@@ -16,7 +16,7 @@ import SelectIcon3x from "../../assets/icon/select@3x.png";
 const StyledButton = styled("button")`
   align-items: center;
   background: ${colours.primaryBlue};
-  border: none;
+  border: 2px solid ${colours.primaryBlue};
   ${(props) =>
     props.displayType === "roundedLeft" && "border-radius: 21.5px 0 0 21.5px;"}
   color: ${colours.white};
@@ -25,14 +25,12 @@ const StyledButton = styled("button")`
   height: 43px;
   margin: 0;
   padding: 0 16px;
+  transition: all 0.05s ease-out;
 
   :focus,
   :hover {
+    border-color: ${colours.grey};
     outline: 0;
-
-    img {
-      transform: scale(1.15);
-    }
   }
 
   span {
@@ -43,7 +41,6 @@ const StyledButton = styled("button")`
 
   img {
     margin-left: 8px;
-    transition: transform 0.05s ease-out;
   }
 `;
 

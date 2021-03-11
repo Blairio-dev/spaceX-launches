@@ -39,8 +39,8 @@ const StyledRocketWrapper = styled("div")`
 const StyledWrapper = styled("div")`
   background-color: ${colours.primaryBlue};
   display: flex;
-  min-height: 100vh;
   justify-content: center;
+  min-height: 100vh;
 `;
 
 const App = () => {
