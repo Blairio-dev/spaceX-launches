@@ -19,6 +19,7 @@ const StyledRow = styled("tr")`
 const StyledFlightNumber = styled("td")`
   font-family: "Brandon Grotesque Medium";
   font-size: 40px;
+  font-weight: 500;
   margin-left: 32px;
   margin-right: 24px;
   width: 76px;
@@ -27,6 +28,7 @@ const StyledFlightNumber = styled("td")`
 const StyledMissionName = styled("td")`
   font-family: "Brandon Grotesque Medium";
   font-size: 32px;
+  font-weight: 500;
   width: 100%;
 `;
 
@@ -50,12 +52,15 @@ const StackedCell = styled("td")`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding-left: 21px;
-  padding-right: 16px;
+  margin-left: 21px;
+  margin-right: 16px;
 `;
 
 const StyledTable = styled("table")`
   border-spacing: 0;
+  td {
+    padding: 0;
+  }
 `;
 
 const LaunchTable = ({ launchData }) => (
@@ -66,7 +71,6 @@ const LaunchTable = ({ launchData }) => (
           <Button.Filter labelText="Filter by Year" key="button-filter" />,
           <Button.Sort labelText="Sort Descending" key="button-sort" />,
         ]}
-        verticalAlignment="center"
       />
     </ButtonWrapper>
     <StyledTable>

@@ -56,6 +56,7 @@ const App = () => {
         <StyledHeaderWrapper>
           <Inline.Justified
             nodes={[<HomeTitle />, <Button.Reload key="button-reload" />]}
+            verticalAlignment="center"
           />
         </StyledHeaderWrapper>
         <StyledContentWrapper>
