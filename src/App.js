@@ -13,7 +13,7 @@ import {
 import launchHome from "./assets/img/launch-home.png";
 import launchHome2x from "./assets/img/launch-home@2x.png";
 import launchHome3x from "./assets/img/launch-home@3x.png";
-import { colours } from "./assets/tokens";
+import { breakpoints, colours } from "./assets/tokens";
 
 const getLaunches = gql`
   {
@@ -33,15 +33,37 @@ const StyledContentWrapper = styled("div")`
   display: flex;
   flex-direction: column;
   padding-right: 80px;
+
+  @media (max-width: ${breakpoints.lg}) {
+    padding-right: 40px;
+  }
 `;
 
 const StyledHeaderWrapper = styled("div")`
   margin-bottom: 52px;
 `;
 
+const StyledLaunchDataWrapper = styled("div")`
+  width: 100%;
+`;
+
 const StyledRocketWrapper = styled("div")`
   margin-top: 82px;
   margin-right: 59px;
+
+  img {
+    height: unset;
+    margin: 0 40px;
+    width: 100%;
+  }
+
+  @media (max-width: ${breakpoints.lg}) {
+    display: flex;
+    justify-content: center;
+    margin-right: 0;
+    margin-top: 40px;
+    width: 100%;
+  }
 `;
 
 const StyledWrapper = styled("div")`
@@ -49,6 +71,7 @@ const StyledWrapper = styled("div")`
   display: flex;
   justify-content: center;
   min-height: 100vh;
+  min-width: 100vw;
 `;
 
 const App = () => {
@@ -88,7 +111,7 @@ const App = () => {
                   `}
                 />
               </StyledRocketWrapper>,
-              <div key="launch-data">
+              <StyledLaunchDataWrapper key="launch-data">
                 {loading && <p>Fetching launch data...</p>}
                 {error && <p>Houston, we have a problem...</p>}
                 {!loading && !error && (
@@ -100,7 +123,7 @@ const App = () => {
                     sortOnClick={() => setIsAscending(!isAscending)}
                   />
                 )}
-              </div>,
+              </StyledLaunchDataWrapper>,
             ]}
           />
         </StyledContentWrapper>

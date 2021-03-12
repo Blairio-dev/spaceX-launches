@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
-import { colours } from "../../assets/tokens";
+import { breakpoints, colours } from "../../assets/tokens";
 
 const StyledWrapper = styled("div")`
   background-color: ${colours.white};
@@ -9,6 +9,11 @@ const StyledWrapper = styled("div")`
   padding-left: 40px;
   padding-top: 24px;
   width: 100vw;
+
+  @media (max-width: ${breakpoints.sm}) {
+    padding-left: 16px;
+    padding-top: 16px;
+  }
 `;
 
 const PageShell = ({ children }) => <StyledWrapper>{children}</StyledWrapper>;

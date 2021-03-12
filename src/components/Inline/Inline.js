@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
+import { breakpoints } from "../../assets/tokens";
 
 const StyledWrapper = styled("div")`
   align-items: ${(props) => props.alignItems};
   display: flex;
   justify-content: ${(props) => props.justification};
   width: 100%;
+
+  @media (max-width: ${breakpoints.lg}) {
+    flex-flow: wrap-reverse;
+  }
 `;
 
 const getVerticalAlignment = (verticalAlignment) => {

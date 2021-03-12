@@ -68,6 +68,8 @@ const StackedCell = styled("td")`
 
 const StyledTable = styled("table")`
   border-spacing: 0;
+  width: 100%;
+
   td {
     padding: 0;
   }
