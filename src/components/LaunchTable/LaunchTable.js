@@ -5,6 +5,7 @@ import moment from "moment";
 import { colours } from "../../assets/tokens";
 import { Button, Inline } from "../../components";
 import { Select } from "../Select/Select";
+import { sortLaunches } from "../../assets/functions";
 
 const StyledControls = styled("div")`
   margin-bottom: 13px;
@@ -74,14 +75,15 @@ const StyledTable = styled("table")`
 
 const LaunchTable = ({
   filterOnChange,
+  isAscending,
   launchData,
   launchYear,
-  sortLabelText,
   sortOnClick,
 }) => {
-  const launchYears = [
+  const launchYearOptions = [
     ...new Set(launchData.map((launch) => launch.launch_year)),
   ];
+  const filteredLaunches = sortLaunches(launchData, launchYear, isAscending);
   return (
     <div>
       <StyledControls>
@@ -92,11 +94,11 @@ const LaunchTable = ({
               key="launch-year-filter-select"
               id="launch-year-filter-select"
               onChange={(event) => filterOnChange(event)}
-              selectOptions={["Filter by Year", ...launchYears]}
+              selectOptions={["Filter by Year", ...launchYearOptions]}
               selectedOption={launchYear}
             />,
             <Button.Sort
-              labelText={sortLabelText}
+              labelText={`Sort ${isAscending ? "Descending" : "Ascending"}`}
               key="button-sort"
               onClick={sortOnClick}
             />,
@@ -105,7 +107,7 @@ const LaunchTable = ({
       </StyledControls>
       <StyledTable>
         <tbody>
-          {launchData.map((launch, index) => (
+          {filteredLaunches.map((launch, index) => (
             <StyledRow key={`#${launch.id}-${launch.mission_name}-${index}`}>
               <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
               <StyledMissionName>{launch.mission_name}</StyledMissionName>
@@ -124,6 +126,7 @@ const LaunchTable = ({
 };
 
 LaunchTable.propTypes = {
+  isAscending: PropTypes.bool.isRequired,
   filterOnChange: PropTypes.func.isRequired,
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
@@ -135,7 +138,6 @@ LaunchTable.propTypes = {
       }),
     })
   ).isRequired,
-  sortLabelText: PropTypes.string.isRequired,
   sortOnClick: PropTypes.func.isRequired,
 };
 

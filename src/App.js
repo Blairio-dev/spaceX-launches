@@ -16,12 +16,8 @@ import launchHome3x from "./assets/img/launch-home@3x.png";
 import { colours } from "./assets/tokens";
 
 const getLaunches = gql`
-  query Launch($launchYear: String!, $launchOrder: String!) {
-    launches(
-      find: { launch_year: $launchYear }
-      sort: "launch_date_utc"
-      order: $launchOrder
-    ) {
+  {
+    launches {
       id
       mission_name
       launch_date_utc
@@ -55,14 +51,11 @@ const StyledWrapper = styled("div")`
   min-height: 100vh;
 `;
 
-const App = (client) => {
+const App = () => {
   const [isAscending, setIsAscending] = useState(true);
   const [launchYear, setLaunchYear] = useState("");
-  const launchOrder = isAscending ? "ASC" : "DESC";
 
   const { loading, error, data, refetch } = useQuery(getLaunches, {
-    variables: { launchYear, launchOrder },
-    fetchPolicy: "cache-first",
     notifyOnNetworkStatusChange: true,
   });
 
@@ -101,12 +94,10 @@ const App = (client) => {
                 {!loading && !error && (
                   <LaunchTable
                     filterOnChange={filterOnChange}
+                    isAscending={isAscending}
                     launchData={data.launches}
                     launchYear={launchYear}
                     sortOnClick={() => setIsAscending(!isAscending)}
-                    sortLabelText={`Sort ${
-                      isAscending ? "Descending" : "Ascending"
-                    }`}
                   />
                 )}
               </div>,
