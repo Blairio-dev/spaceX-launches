@@ -140,6 +140,7 @@ LaunchTable.propTypes = {
       }),
     })
   ).isRequired,
+  launchYear: PropTypes.string.isRequired,
   sortOnClick: PropTypes.func.isRequired,
 };
 
