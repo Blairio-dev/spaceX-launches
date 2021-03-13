@@ -46,6 +46,7 @@
   "devDependencies": {
     "@emotion/babel-plugin": "^11.2.0",
     "customize-cra": "^1.0.0",
+    "eslint-plugin-react": "^7.22.0",
     "react-app-rewired": "^2.1.8"
   }
 }

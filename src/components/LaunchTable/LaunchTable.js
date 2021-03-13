@@ -128,8 +128,11 @@ const LaunchTable = ({
 };
 
 LaunchTable.propTypes = {
+  /** Set to true when data should be sorted in ascending order. */
   isAscending: PropTypes.bool.isRequired,
+  /** Callback function triggered on change of the filter select. */
   filterOnChange: PropTypes.func.isRequired,
+  /** Launch data to populate the table. */
   launchData: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -140,7 +143,9 @@ LaunchTable.propTypes = {
       }),
     })
   ).isRequired,
+  /** Selected launch year used to filter data. */
   launchYear: PropTypes.string.isRequired,
+  /** Callback function triggered on click of sort button. */
   sortOnClick: PropTypes.func.isRequired,
 };
 

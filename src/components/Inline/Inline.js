@@ -16,14 +16,14 @@ const StyledWrapper = styled("div")`
 
 const getVerticalAlignment = (verticalAlignment) => {
   switch (verticalAlignment) {
-    case "top":
-      return "flex-start";
+    case "baseline":
+      return "baseline";
     case "bottom":
       return "flex-end";
     case "center":
       return "center";
-    case "baseline":
-      return "baseline";
+    case "top":
+      return "flex-start";
     default:
       return "stretch";
   }
@@ -39,12 +39,16 @@ const BaseInline = ({ justification, nodes, verticalAlignment }) => (
 );
 
 const baseProps = {
+  /** An array of components. */
   nodes: PropTypes.arrayOf(PropTypes.node).isRequired,
-  verticalAlignment: PropTypes.string,
+  /** Vertical alignment of components within flex containter. */
+  verticalAlignment: PropTypes.oneOf(["baseline", "bottom", "center", "top"])
+    .isRequired,
 };
 
 BaseInline.propTypes = {
   ...baseProps,
+  /** Jusification of components within flex containter. */
   justification: PropTypes.string,
 };
 

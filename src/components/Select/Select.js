@@ -41,7 +41,7 @@ const StyledWrapper = styled("div")`
   }
 `;
 
-const Select = ({ id, labelText, onChange, selectedOption, selectOptions }) => (
+const Select = ({ id, onChange, selectedOption, selectOptions }) => (
   <StyledWrapper>
     <StyledSelect id={id} onChange={onChange} value={selectedOption}>
       {selectOptions.map((item, index) => {
@@ -68,11 +68,9 @@ const Select = ({ id, labelText, onChange, selectedOption, selectOptions }) => (
 Select.propTypes = {
   /** Unique string id. */
   id: PropTypes.string,
-  /** Label text. */
-  labelText: PropTypes.string,
   /** Callback function triggered on change. */
   onChange: PropTypes.func,
-  /** Selected item. */
+  /** Selected option. */
   selectedOption: PropTypes.string.isRequired,
   /** Array of string options. */
   selectOptions: PropTypes.arrayOf(PropTypes.string).isRequired,

@@ -41,10 +41,6 @@ const StyledButton = styled("button")`
   }
 `;
 
-const basePropTypes = {
-  onClick: PropTypes.func.isRequired,
-};
-
 const Base = ({
   displayType,
   iconHeight,
@@ -62,11 +58,21 @@ const Base = ({
   </StyledButton>
 );
 
+const basePropTypes = {
+  /** Callback function triggered on click. */
+  onClick: PropTypes.func.isRequired,
+};
+
 Base.propTypes = {
   ...basePropTypes,
+  /** Control button border styles. */
   displayType: PropTypes.oneOf(["standard", "roundedLeft"]).isRequired,
+  /** Set the icon height in pixels. */
   iconHeight: PropTypes.string.isRequired,
-  iconSourceSet: PropTypes.node.isRequired,
+  /** Set the button icons.
+   * Pass responsive images at multiple resolutions. */
+  iconSourceSet: PropTypes.string.isRequired,
+  /** Label text. */
   labelText: PropTypes.string.isRequired,
 };
 
@@ -104,6 +110,7 @@ const Sort = ({ labelText, onClick }) => (
 
 Sort.propTypes = {
   ...basePropTypes,
+  /** Label text. */
   labelText: PropTypes.string.isRequired,
 };
 

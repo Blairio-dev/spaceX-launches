@@ -19,6 +19,7 @@ const StyledWrapper = styled("div")`
 const PageShell = ({ children }) => <StyledWrapper>{children}</StyledWrapper>;
 
 PageShell.propTypes = {
+  /** Child page content. */
   children: PropTypes.node.isRequired,
 };
 
