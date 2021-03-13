@@ -1,3 +1,4 @@
+export { BodyText } from "./BodyText/BodyText.js";
 export { Button } from "./Button/Button.js";
 export { HomeTitle } from "./HomeTitle/HomeTitle.js";
 export { Image } from "./Image/Image.js";

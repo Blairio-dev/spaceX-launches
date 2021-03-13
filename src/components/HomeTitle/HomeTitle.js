@@ -31,4 +31,6 @@ const HomeTitle = () => (
   </StyledWrapper>
 );
 
+HomeTitle.propTypes = {};
+
 export { HomeTitle };

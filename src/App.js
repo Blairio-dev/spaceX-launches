@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import { gql, useQuery } from "@apollo/client";
-
 import {
+  BodyText,
   Button,
   HomeTitle,
   Image,
@@ -27,6 +27,11 @@ const getLaunches = gql`
       }
     }
   }
+`;
+
+const StyledBodyWrapper = styled("div")`
+  display: flex;
+  justify-content: flex-end;
 `;
 
 const StyledContentWrapper = styled("div")`
@@ -112,8 +117,10 @@ const App = () => {
                 />
               </StyledRocketWrapper>,
               <StyledLaunchDataWrapper key="launch-data">
-                {loading && <p>Fetching launch data...</p>}
-                {error && <p>Houston, we have a problem...</p>}
+                <StyledBodyWrapper>
+                  {loading && <BodyText text="Fetching launch data..." />}
+                  {error && <BodyText text="Houston, we have a problem..." />}
+                </StyledBodyWrapper>
                 {!loading && !error && (
                   <LaunchTable
                     filterOnChange={filterOnChange}
