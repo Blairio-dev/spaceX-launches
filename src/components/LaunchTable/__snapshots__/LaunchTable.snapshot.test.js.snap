@@ -78,10 +78,10 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
   >
     <tbody>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #1
         </td>
@@ -91,7 +91,7 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
           FalconSat
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -106,10 +106,10 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
         </td>
       </tr>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #2
         </td>
@@ -119,7 +119,7 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
           DemoSat
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -134,10 +134,10 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
         </td>
       </tr>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #3
         </td>
@@ -147,7 +147,7 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
           Trailblazer
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -162,10 +162,10 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
         </td>
       </tr>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #4
         </td>
@@ -175,7 +175,7 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
           RatSat
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -190,10 +190,10 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
         </td>
       </tr>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #5
         </td>
@@ -203,7 +203,7 @@ exports[`LaunchTable Snapshots Renders with default props 1`] = `
           RazakSat
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -300,10 +300,10 @@ exports[`LaunchTable Snapshots Renders with fullest props 1`] = `
   >
     <tbody>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #3
         </td>
@@ -313,7 +313,7 @@ exports[`LaunchTable Snapshots Renders with fullest props 1`] = `
           Trailblazer
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"
@@ -328,10 +328,10 @@ exports[`LaunchTable Snapshots Renders with fullest props 1`] = `
         </td>
       </tr>
       <tr
-        className="css-12bdbdo"
+        className="css-1k3981y"
       >
         <td
-          className="css-1fsz59o"
+          className="css-8hb6fg"
         >
           #4
         </td>
@@ -341,7 +341,7 @@ exports[`LaunchTable Snapshots Renders with fullest props 1`] = `
           RatSat
         </td>
         <td
-          className="css-1h1vj5h"
+          className="css-1hyzgfm"
         >
           <div
             className="css-1wzm5rf"

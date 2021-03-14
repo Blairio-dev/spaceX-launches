@@ -2,12 +2,16 @@
 
 exports[`PageShell Snapshots Renders with default props 1`] = `
 <div
-  className="css-4r2csk"
+  className="css-fvwhtc"
 >
-  <div>
-    <span>
-      Child content
-    </span>
+  <div
+    className="css-yf24bg"
+  >
+    <div>
+      <span>
+        Child content
+      </span>
+    </div>
   </div>
 </div>
 `;

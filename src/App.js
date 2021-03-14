@@ -13,7 +13,7 @@ import {
 import launchHome from "./assets/img/launch-home.png";
 import launchHome2x from "./assets/img/launch-home@2x.png";
 import launchHome3x from "./assets/img/launch-home@3x.png";
-import { breakpoints, colours } from "./assets/tokens";
+import { breakpoints } from "./assets/tokens";
 
 const getLaunches = gql`
   {
@@ -42,10 +42,23 @@ const StyledContentWrapper = styled("div")`
   @media (max-width: ${breakpoints.lg}) {
     padding-right: 40px;
   }
+
+  @media (max-width: ${breakpoints.sm}) {
+    padding-right: 16px;
+  }
 `;
 
 const StyledHeaderWrapper = styled("div")`
   margin-bottom: 52px;
+
+  @media (max-width: ${breakpoints.sm}) {
+    margin-bottom: 26px;
+
+    > div {
+      flex-flow: wrap;
+      justify-content: flex-end;
+    }
+  }
 `;
 
 const StyledLaunchDataWrapper = styled("div")`
@@ -71,14 +84,6 @@ const StyledRocketWrapper = styled("div")`
   }
 `;
 
-const StyledWrapper = styled("div")`
-  background-color: ${colours.primaryBlue};
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  min-width: 100vw;
-`;
-
 const App = () => {
   const [isAscending, setIsAscending] = useState(true);
   const [launchYear, setLaunchYear] = useState("");
@@ -91,51 +96,49 @@ const App = () => {
     setLaunchYear(e.target.value === "Filter by Year" ? "" : e.target.value);
 
   return (
-    <StyledWrapper>
-      <PageShell>
-        <StyledHeaderWrapper>
-          <Inline.Justified
-            nodes={[
-              <HomeTitle key="home-title" />,
-              <Button.Reload key="button-reload" onClick={() => refetch()} />,
-            ]}
-            verticalAlignment="center"
-          />
-        </StyledHeaderWrapper>
-        <StyledContentWrapper>
-          <Inline.Justified
-            nodes={[
-              <StyledRocketWrapper key="rocket-image">
-                <Image
-                  alt="Rocket launching"
-                  height="694px"
-                  sourceSet={`
+    <PageShell>
+      <StyledHeaderWrapper>
+        <Inline.Justified
+          nodes={[
+            <HomeTitle key="home-title" />,
+            <Button.Reload key="button-reload" onClick={() => refetch()} />,
+          ]}
+          verticalAlignment="center"
+        />
+      </StyledHeaderWrapper>
+      <StyledContentWrapper>
+        <Inline.Justified
+          nodes={[
+            <StyledRocketWrapper key="rocket-image">
+              <Image
+                alt="Rocket launching"
+                height="694px"
+                sourceSet={`
                     ${launchHome3x} 3x,
                     ${launchHome2x} 2x,
                     ${launchHome} 1x,
                   `}
+              />
+            </StyledRocketWrapper>,
+            <StyledLaunchDataWrapper key="launch-data">
+              <StyledBodyWrapper>
+                {loading && <BodyText text="Fetching launch data..." />}
+                {error && <BodyText text="Houston, we have a problem..." />}
+              </StyledBodyWrapper>
+              {!loading && !error && (
+                <LaunchTable
+                  filterOnChange={filterOnChange}
+                  isAscending={isAscending}
+                  launchData={data.launches}
+                  launchYear={launchYear}
+                  sortOnClick={() => setIsAscending(!isAscending)}
                 />
-              </StyledRocketWrapper>,
-              <StyledLaunchDataWrapper key="launch-data">
-                <StyledBodyWrapper>
-                  {loading && <BodyText text="Fetching launch data..." />}
-                  {error && <BodyText text="Houston, we have a problem..." />}
-                </StyledBodyWrapper>
-                {!loading && !error && (
-                  <LaunchTable
-                    filterOnChange={filterOnChange}
-                    isAscending={isAscending}
-                    launchData={data.launches}
-                    launchYear={launchYear}
-                    sortOnClick={() => setIsAscending(!isAscending)}
-                  />
-                )}
-              </StyledLaunchDataWrapper>,
-            ]}
-          />
-        </StyledContentWrapper>
-      </PageShell>
-    </StyledWrapper>
+              )}
+            </StyledLaunchDataWrapper>,
+          ]}
+        />
+      </StyledContentWrapper>
+    </PageShell>
   );
 };
 

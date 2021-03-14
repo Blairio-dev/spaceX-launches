@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import moment from "moment";
-import { colours } from "../../assets/tokens";
+import { breakpoints, colours } from "../../assets/tokens";
 import { Button, Inline } from "../../components";
 import { Select } from "../Select/Select";
 import { sortLaunches } from "../../assets/functions";
@@ -24,6 +24,11 @@ const StyledRow = styled("tr")`
   min-height: 80px;
   justify-content: space-between;
   margin-bottom: 6px;
+
+  @media (max-width: ${breakpoints.sm}) {
+    flex-wrap: wrap;
+    padding: 0 16px;
+  }
 `;
 
 const StyledFlightNumber = styled("td")`
@@ -33,6 +38,10 @@ const StyledFlightNumber = styled("td")`
   margin-left: 32px;
   margin-right: 24px;
   width: 76px;
+
+  @media (max-width: ${breakpoints.sm}) {
+    margin-left: 0;
+  }
 `;
 
 const StyledMissionName = styled("td")`
@@ -64,6 +73,14 @@ const StackedCell = styled("td")`
   justify-content: flex-end;
   margin-left: 21px;
   margin-right: 16px;
+
+  @media (max-width: ${breakpoints.sm}) {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    width: 100%;
+  }
 `;
 
 const StyledTable = styled("table")`
