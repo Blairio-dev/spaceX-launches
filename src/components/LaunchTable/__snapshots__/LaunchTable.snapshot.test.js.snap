@@ -1,0 +1,361 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LaunchTable Snapshots Renders with default props 1`] = `
+<div>
+  <div
+    className="css-m5epdm"
+  >
+    <div
+      className="css-17w8ll9"
+    >
+      <div
+        className="css-ovst58"
+      >
+        <select
+          className="css-1bjzmyt"
+          id="launch-year-filter-select"
+          onChange={[Function]}
+          value=""
+        >
+          <option
+            value="Filter by Year"
+          >
+            Filter by Year
+          </option>
+          <option
+            value="2006"
+          >
+            2006
+          </option>
+          <option
+            value="2007"
+          >
+            2007
+          </option>
+          <option
+            value="2008"
+          >
+            2008
+          </option>
+          <option
+            value="2009"
+          >
+            2009
+          </option>
+        </select>
+        <img
+          alt="Chevron down"
+          height="5px"
+          srcSet="
+			select@3x.png 3x,
+			select@2x.png 2x,
+			select@3x.png 1x,
+		"
+        />
+      </div>
+      <button
+        className="css-4otj2c"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span>
+          Sort Descending
+        </span>
+        <img
+          alt="Rocket launching"
+          height="18px"
+          srcSet="
+      sort@2x.png 3x,
+      sort.png 2x,
+      sort.png 1x,
+    "
+        />
+      </button>
+    </div>
+  </div>
+  <table
+    className="css-yn959"
+  >
+    <tbody>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #1
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          FalconSat
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            24th Mar 2006
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #2
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          DemoSat
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            21st Mar 2007
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #3
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          Trailblazer
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            3rd Aug 2008
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #4
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          RatSat
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            29th Sep 2008
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #5
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          RazakSat
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            13th Jul 2009
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;
+
+exports[`LaunchTable Snapshots Renders with fullest props 1`] = `
+<div>
+  <div
+    className="css-m5epdm"
+  >
+    <div
+      className="css-17w8ll9"
+    >
+      <div
+        className="css-ovst58"
+      >
+        <select
+          className="css-1bjzmyt"
+          id="launch-year-filter-select"
+          onChange={[Function]}
+          value="2008"
+        >
+          <option
+            value="Filter by Year"
+          >
+            Filter by Year
+          </option>
+          <option
+            value="2006"
+          >
+            2006
+          </option>
+          <option
+            value="2007"
+          >
+            2007
+          </option>
+          <option
+            value="2008"
+          >
+            2008
+          </option>
+          <option
+            value="2009"
+          >
+            2009
+          </option>
+        </select>
+        <img
+          alt="Chevron down"
+          height="5px"
+          srcSet="
+			select@3x.png 3x,
+			select@2x.png 2x,
+			select@3x.png 1x,
+		"
+        />
+      </div>
+      <button
+        className="css-4otj2c"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <span>
+          Sort Descending
+        </span>
+        <img
+          alt="Rocket launching"
+          height="18px"
+          srcSet="
+      sort@2x.png 3x,
+      sort.png 2x,
+      sort.png 1x,
+    "
+        />
+      </button>
+    </div>
+  </div>
+  <table
+    className="css-yn959"
+  >
+    <tbody>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #3
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          Trailblazer
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            3rd Aug 2008
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+      <tr
+        className="css-12bdbdo"
+      >
+        <td
+          className="css-1fsz59o"
+        >
+          #4
+        </td>
+        <td
+          className="css-o3rh2l"
+        >
+          RatSat
+        </td>
+        <td
+          className="css-1h1vj5h"
+        >
+          <div
+            className="css-1wzm5rf"
+          >
+            29th Sep 2008
+          </div>
+          <div
+            className="css-isx2hi"
+          >
+            Falcon 1
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+`;

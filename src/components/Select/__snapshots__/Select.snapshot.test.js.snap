@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select Snapshots Renders with default props 1`] = `
+<div
+  className="css-ovst58"
+>
+  <select
+    className="css-1bjzmyt"
+    id="test-select"
+    onChange={[MockFunction]}
+    value=""
+  >
+    <option
+      value="1995"
+    >
+      1995
+    </option>
+    <option
+      value="1996"
+    >
+      1996
+    </option>
+    <option
+      value="1997"
+    >
+      1997
+    </option>
+    <option
+      value="1998"
+    >
+      1998
+    </option>
+    <option
+      value="1999"
+    >
+      1999
+    </option>
+    <option
+      value="2000"
+    >
+      2000
+    </option>
+  </select>
+  <img
+    alt="Chevron down"
+    height="5px"
+    srcSet="
+			select@3x.png 3x,
+			select@2x.png 2x,
+			select@3x.png 1x,
+		"
+  />
+</div>
+`;

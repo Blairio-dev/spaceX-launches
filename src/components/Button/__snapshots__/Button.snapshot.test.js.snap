@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button Snapshots .Reload .Sort Renders with default props 1`] = `
+<button
+  className="css-4otj2c"
+  onClick={[Function]}
+  type="button"
+>
+  <span>
+    Sort
+  </span>
+  <img
+    alt="Rocket launching"
+    height="18px"
+    srcSet="
+      sort@2x.png 3x,
+      sort.png 2x,
+      sort.png 1x,
+    "
+  />
+</button>
+`;
+
+exports[`Button Snapshots .Reload Renders with default props 1`] = `
+<button
+  className="css-adslba"
+  onClick={[Function]}
+  type="button"
+>
+  <span>
+    Reload Data
+  </span>
+  <img
+    alt="Rocket launching"
+    height="14px"
+    srcSet="
+      refresh@3x.png 3x,
+      refresh@2x.png 2x,
+      refresh.png 1x,
+    "
+  />
+</button>
+`;

@@ -42,8 +42,13 @@ const baseProps = {
   /** An array of components. */
   nodes: PropTypes.arrayOf(PropTypes.node).isRequired,
   /** Vertical alignment of components within flex containter. */
-  verticalAlignment: PropTypes.oneOf(["baseline", "bottom", "center", "top"])
-    .isRequired,
+  verticalAlignment: PropTypes.oneOf([
+    "baseline",
+    "bottom",
+    "center",
+    "stretch",
+    "top",
+  ]),
 };
 
 BaseInline.propTypes = {

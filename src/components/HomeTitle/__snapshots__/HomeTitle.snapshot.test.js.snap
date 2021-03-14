@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeTitle Snapshots Renders with default props 1`] = `
+<div
+  className="css-197d2zo"
+>
+  <img
+    alt="SpaceX Logo"
+    height="22px"
+    src="spacex-logo.png"
+  />
+  <h1
+    className="css-n8q6wh"
+  >
+    LAUNCHES
+  </h1>
+</div>
+`;

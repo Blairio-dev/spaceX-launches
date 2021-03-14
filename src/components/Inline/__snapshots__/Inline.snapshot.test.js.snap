@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Inline Snapshots .Justified Renders with default props 1`] = `
+<div
+  className="css-hheasg"
+>
+  <div>
+    123
+  </div>
+  <div>
+    345
+  </div>
+</div>
+`;
+
+exports[`Inline Snapshots .Justified Renders with fullest props 1`] = `
+<div
+  className="css-1ff6szg"
+>
+  <div>
+    123
+  </div>
+  <div>
+    345
+  </div>
+</div>
+`;
+
+exports[`Inline Snapshots .RightAligned Renders with default props 1`] = `
+<div
+  className="css-17w8ll9"
+>
+  <div>
+    123
+  </div>
+  <div>
+    345
+  </div>
+</div>
+`;
+
+exports[`Inline Snapshots .RightAligned Renders with fullest props 1`] = `
+<div
+  className="css-ck5tno"
+>
+  <div>
+    123
+  </div>
+  <div>
+    345
+  </div>
+</div>
+`;

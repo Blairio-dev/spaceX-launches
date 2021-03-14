@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BodyText Snapshots Renders with default props 1`] = `
+<span
+  className="css-14vudug"
+>
+  Body text
+</span>
+`;

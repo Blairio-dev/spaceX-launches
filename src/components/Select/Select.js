@@ -67,7 +67,7 @@ const Select = ({ id, onChange, selectedOption, selectOptions }) => (
 
 Select.propTypes = {
   /** Unique string id. */
-  id: PropTypes.string,
+  id: PropTypes.string.isRequired,
   /** Callback function triggered on change. */
   onChange: PropTypes.func,
   /** Selected option. */

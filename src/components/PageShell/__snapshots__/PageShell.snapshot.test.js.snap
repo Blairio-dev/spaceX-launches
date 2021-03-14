@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageShell Snapshots Renders with default props 1`] = `
+<div
+  className="css-4r2csk"
+>
+  <div>
+    <span>
+      Child content
+    </span>
+  </div>
+</div>
+`;

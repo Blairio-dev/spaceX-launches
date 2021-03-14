@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Image Snapshots Renders with default props 1`] = `
+<img
+  alt="alternate-text"
+  src="refresh.png"
+/>
+`;
+
+exports[`Image Snapshots Renders with fullest props 1`] = `
+<img
+  alt="alternate-text"
+  height="64px"
+  src="refresh.png"
+  srcSet="
+      refresh@3x.png 3x,
+      refresh@2x.png 2x,
+      refresh.png 1x,
+    "
+  width="64px"
+/>
+`;

@@ -138,6 +138,7 @@ LaunchTable.propTypes = {
       id: PropTypes.string.isRequired,
       mission_name: PropTypes.string.isRequired,
       launch_date_utc: PropTypes.string.isRequired,
+      launch_year: PropTypes.string.isRequired,
       rocket: PropTypes.PropTypes.shape({
         rocket_name: PropTypes.string.isRequired,
       }),
@@ -147,6 +148,10 @@ LaunchTable.propTypes = {
   launchYear: PropTypes.string.isRequired,
   /** Callback function triggered on click of sort button. */
   sortOnClick: PropTypes.func.isRequired,
+};
+
+LaunchTable.defaultProps = {
+  isAscending: true,
 };
 
 export { LaunchTable };
