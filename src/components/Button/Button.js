@@ -20,7 +20,9 @@ const StyledButton = styled("button")`
   cursor: pointer;
   display: inline-flex;
   height: 43px;
+  justify-content: space-between;
   margin: 0;
+  ${(props) => props.displayType === "standard" && "min-width: 163px;"}
   padding: 0 16px;
   transition: all 0.05s ease-out;
 
