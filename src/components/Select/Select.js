@@ -11,6 +11,7 @@ const StyledSelect = styled("select")`
   appearance: none;
   background-color: ${colours.primaryBlue};
   border: 2px solid ${colours.primaryBlue};
+  border-radius: 0;
   color: ${colours.white};
   cursor: pointer;
   font-family: "Brandon Grotesque Bold";
