@@ -23,7 +23,7 @@ const StyledRow = styled("tr")`
   display: flex;
   min-height: 80px;
   justify-content: space-between;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 
   @media (max-width: ${breakpoints.sm}) {
     flex-wrap: wrap;

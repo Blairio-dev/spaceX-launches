@@ -71,7 +71,8 @@ const StyledRocketWrapper = styled("div")`
 
   img {
     height: unset;
-    margin: 0 40px;
+    margin: 0;
+    min-width: 534px;
     width: 100%;
   }
 
@@ -81,6 +82,11 @@ const StyledRocketWrapper = styled("div")`
     margin-right: 0;
     margin-top: 40px;
     width: 100%;
+
+    img {
+      margin: 0 40px;
+      min-width: auto;
+    }
   }
 `;
 
