@@ -98,6 +98,7 @@ Reload.propTypes = {
 
 const Sort = ({ labelText, onClick }) => (
   <Base
+    aria-live="assertive"
     displayType="standard"
     iconHeight="18px"
     iconSourceSet={`

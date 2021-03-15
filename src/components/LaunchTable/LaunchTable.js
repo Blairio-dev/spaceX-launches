@@ -51,7 +51,7 @@ const StyledMissionName = styled("td")`
   width: 100%;
 `;
 
-const StyledLaunchDate = styled("div")`
+const StyledLaunchDate = styled("td")`
   display: flex;
   font-family: "Brandon Grotesque Regular";
   font-size: 16px;
@@ -60,7 +60,7 @@ const StyledLaunchDate = styled("div")`
   white-space: nowrap;
 `;
 
-const StyledRocketName = styled("div")`
+const StyledRocketName = styled("td")`
   display: flex;
   font-family: "Brandon Grotesque Bold";
   font-size: 24px;
@@ -128,8 +128,10 @@ const LaunchTable = ({
         <tbody>
           {filteredLaunches.map((launch, index) => (
             <StyledRow key={`#${launch.id}-${launch.mission_name}-${index}`}>
-              <StyledFlightNumber>{`#${launch.id}`}</StyledFlightNumber>
-              <StyledMissionName>{launch.mission_name}</StyledMissionName>
+              <StyledFlightNumber rowSpan="2">{`#${launch.id}`}</StyledFlightNumber>
+              <StyledMissionName rowSpan="2">
+                {launch.mission_name}
+              </StyledMissionName>
               <StackedCell>
                 <StyledLaunchDate>
                   {moment(launch.launch_date_utc).format("Do MMM YYYY")}
