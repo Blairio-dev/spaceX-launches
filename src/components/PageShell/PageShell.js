@@ -6,11 +6,13 @@ import { breakpoints, colours } from "../../assets/tokens";
 const StyledContainer = styled("div")`
   background-color: ${colours.white};
   max-width: 1440px;
+  padding-bottom: 24px;
   padding-left: 40px;
   padding-top: 24px;
   width: 1440px;
 
   @media (max-width: ${breakpoints.sm}) {
+    padding-bottom: 16px;
     padding-left: 16px;
     padding-top: 16px;
   }
